@@ -4,7 +4,7 @@
  * Cookie Consent Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2022 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\CookieConsent\Model;
@@ -37,11 +37,16 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's config value for specified field.
+     *
+     * @param string $field
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return mixed
      */
     public function getConfigValue(
-        $field,
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $field,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ) {
         return $this->scopeConfig->getValue(
@@ -52,10 +57,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's enabled status.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function isEnabled(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -66,10 +75,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's use transition status.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function hasTransition(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -80,10 +93,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured position value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string
      */
     public function getPosition(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): string {
         $position = $this->scopeConfig->getValue(
@@ -96,10 +113,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured layout value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string
      */
     public function getLayout(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): string {
         $layout = $this->scopeConfig->getValue(
@@ -112,10 +133,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured compliance type value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string
      */
     public function getComplianceType(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): string {
         $type = $this->scopeConfig->getValue(
@@ -128,10 +153,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured message value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string|null
      */
     public function getMessage(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->scopeConfig->getValue(
@@ -142,10 +171,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured button text value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string|null
      */
     public function getButtonText(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->scopeConfig->getValue(
@@ -156,10 +189,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Retrieves the module's show link status.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function showLink(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -170,10 +207,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured link text value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string|null
      */
     public function getLinkText(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->scopeConfig->getValue(
@@ -184,10 +225,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured CMS page ID value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return int|null
      */
     public function getCmsPage(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?int {
         $page = $this->scopeConfig->getValue(
@@ -200,10 +245,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured cookie name value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string
      */
     public function getCookieName(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): string {
         $name = $this->scopeConfig->getValue(
@@ -216,10 +265,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured cookie path value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string
      */
     public function getCookiePath(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): string {
         $path = $this->scopeConfig->getValue(
@@ -232,10 +285,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured cookie domain value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string
      */
     public function getCookieDomain(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): string {
         $domain = $this->scopeConfig->getValue(
@@ -248,10 +305,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured cookie expiry in days value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return int
      */
     public function getCookieExpiry(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): int {
         $days = $this->scopeConfig->getValue(
@@ -260,14 +321,18 @@ class Config implements ConfigInterface
             $scopeCode
         );
 
-        return (int) $days ?? 365;
+        return ($days !== null && $days != 0) ? (int) $days : 365;
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured cookie secure value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return bool
      */
     public function isCookieSecure(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): bool {
         return (bool) $this->scopeConfig->getValue(
@@ -292,10 +357,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured banner text color value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string|null
      */
     public function getBannerTextColor(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->scopeConfig->getValue(
@@ -306,10 +375,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured button color value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string|null
      */
     public function getButtonColor(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->scopeConfig->getValue(
@@ -320,10 +393,14 @@ class Config implements ConfigInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the configured button text color value.
+     *
+     * @param string $scope
+     * @param null|string|\Magento\Store\Model\Store $scopeCode
+     * @return string|null
      */
     public function getButtonTextColor(
-        $scope = ScopeInterface::SCOPE_STORES,
+        string $scope = ScopeInterface::SCOPE_STORES,
         $scopeCode = null
     ): ?string {
         return $this->scopeConfig->getValue(
