@@ -4,7 +4,7 @@
  * Cookie Consent Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2022 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\CookieConsent\Block;
@@ -108,7 +108,7 @@ class Banner extends Template
     {
         $position = $this->getConfig()->getPosition('store', $this->storeCode);
 
-        return ($position != 'top-static') ? $position : 'top';
+        return ($position != 'top-static') ? (string) $position : 'top';
     }
 
     /**
@@ -200,7 +200,6 @@ class Banner extends Template
         if (!$pageId) {
             return null;
         }
-
         return $this->cmsPageHelper->getPageUrl($pageId);
     }
 
@@ -244,7 +243,7 @@ class Banner extends Template
      */
     public function getCookieExpiry(): int
     {
-        return $this->getConfig()
+        return (int) $this->getConfig()
             ->getCookieExpiry('store', $this->storeCode);
     }
 

@@ -4,7 +4,7 @@
  * Cookie Consent Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2022 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\CookieConsent\Model\Config\Source;
@@ -18,7 +18,7 @@ use Magento\Framework\Data\OptionSourceInterface;
 class Compliance implements OptionSourceInterface
 {
     /**
-     * Options getter.
+     * Return array of options as value-label pairs.
      *
      * @return array
      */
