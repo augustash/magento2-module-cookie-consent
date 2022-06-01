@@ -4,7 +4,7 @@
  * Cookie Consent Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2022 August Ash (https://www.augustash.com)
  */
 
 namespace Augustash\CookieConsent\Block\Adminhtml\System\Config;
@@ -27,7 +27,6 @@ class Color extends FormField
     {
         $html = $element->getElementHtml();
         $value = $element->getData('value');
-
         $html .= '<script>
             require(["jquery", "jquery/colorpicker/js/colorpicker"], function ($) {
                 $(document).ready(function () {

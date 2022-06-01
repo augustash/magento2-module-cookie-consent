@@ -4,51 +4,50 @@
  * Cookie Consent Module
  *
  * @author    Peter McWilliams <pmcwilliams@augustash.com>
- * @copyright Copyright (c) 2020 August Ash (https://www.augustash.com)
+ * @copyright Copyright (c) 2022 August Ash (https://www.augustash.com)
  */
 
-/**
- * @var \Augustash\CookieConsent\Block\Banner $block
- */
+/** @var \Augustash\CookieConsent\Block\Banner $block */
+/** @var \Magento\Framework\Escaper $escaper */
 ?>
-<?php if ($block->isEnabled()) : ?>
+<?php if ($block->isEnabled()): ?>
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
-        <?php if ($block->hasTransition() === false) : ?>
-            window.cookieconsent.hasTransition = false;
+        <?php if ($block->hasTransition() === false): ?>
+        window.cookieconsent.hasTransition = false;
         <?php endif; ?>
         window.cookieconsent.initialise({
             "palette": {
                 "popup": {
-                    "background": "<?= $block->escapeHtml($block->getBannerColor()) ?>",
-                    "text": "<?= $block->escapeHtml($block->getBannerTextColor()) ?>"
+                    "background": "<?= $escaper->escapeHtml($block->getBannerColor()) ?>",
+                    "text": "<?= $escaper->escapeHtml($block->getBannerTextColor()) ?>"
                 },
                 "button": {
-                    "background": "<?= $block->escapeHtml($block->getButtonColor()) ?>",
-                    "text": "<?= $block->escapeHtml($block->getButtonTextColor()) ?>"
+                    "background": "<?= $escaper->escapeHtml($block->getButtonColor()) ?>",
+                    "text": "<?= $escaper->escapeHtml($block->getButtonTextColor()) ?>"
                 }
             },
-            "theme": "<?= $block->escapeJsQuote($block->getLayout()) ?>",
-            "position": "<?= $block->escapeJsQuote($block->getPosition()) ?>",
-            "type": "<?= $block->escapeJsQuote($block->getComplianceType()) ?>",
-            "static": <?= $block->escapeJsQuote($block->isStatic()) ?>,
-            "showLink": <?= $block->escapeJsQuote($block->showLink()) ?>,
+            "theme": "<?= $escaper->escapeHtmlAttr($block->getLayout()) ?>",
+            "position": "<?= $escaper->escapeHtmlAttr($block->getPosition()) ?>",
+            "type": "<?= $escaper->escapeHtmlAttr($block->getComplianceType()) ?>",
+            "static": <?= $escaper->escapeHtmlAttr($block->isStatic()) ?>,
+            "showLink": <?= $escaper->escapeHtmlAttr($block->showLink()) ?>,
             "content": {
-                "dismiss": "<?= $block->escapeJsQuote($block->getButtonText()) ?>",
-                <?php if ($block->getCmsUrl()) : ?>
-                "href": "<?= $block->escapeJsQuote($block->getCmsUrl()) ?>",
+                "dismiss": "<?= $escaper->escapeHtmlAttr($block->getButtonText()) ?>",
+                <?php if ($block->getCmsUrl()): ?>
+                "href": "<?= $escaper->escapeHtmlAttr($block->getCmsUrl()) ?>",
                 <?php endif; ?>
-                <?php if ($block->showLink() == 'true' && $block->getLinkText()) : ?>
-                "link": "<?= $block->escapeJsQuote($block->getLinkText()) ?>",
+                <?php if ($block->showLink() == 'true' && $block->getLinkText()): ?>
+                "link": "<?= $escaper->escapeHtmlAttr($block->getLinkText()) ?>",
                 <?php endif; ?>
-                "message": "<?= $block->escapeJsQuote($block->getMessage()) ?>"
+                "message": "<?= $escaper->escapeHtmlAttr($block->getMessage()) ?>"
             },
             "cookie": {
-                "name": "<?= $block->escapeJsQuote($block->getCookieName()) ?>",
-                "path": "<?= $block->escapeJsQuote($block->getCookiePath()) ?>",
-                "domain": "<?= $block->escapeJsQuote($block->getCookieDomain()) ?>",
-                "expiry": <?= $block->escapeJsQuote($block->getCookieExpiry()) ?>,
-                "secure": <?= $block->escapeJsQuote($block->isCookieSecure()) ?>
+                "name": "<?= $escaper->escapeHtmlAttr($block->getCookieName()) ?>",
+                "path": "<?= $escaper->escapeHtmlAttr($block->getCookiePath()) ?>",
+                "domain": "<?= $escaper->escapeHtmlAttr($block->getCookieDomain()) ?>",
+                "expiry": <?= $escaper->escapeHtmlAttr($block->getCookieExpiry()) ?>,
+                "secure": <?= $escaper->escapeHtmlAttr($block->isCookieSecure()) ?>
             }
         });
     </script>
